@@ -1,32 +1,46 @@
 
-import reactImg from './assets/react-core-concepts.png';
+import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data';
+import Header from './Components/header';
+import CoreConcept from './Components/CoreConcepts';
+// function UserData(){
+//   const user = {first:"George", last: "Salayka", age:"40"};
 
-function Header() {
-  const reactDescriptions = ['Fundamental', 'Crucial', 'Core']
-  function genRandomInt(max)  {
-    return Math.floor(Math.random() * (max+1));
-  }
-  const description = reactDescriptions[genRandomInt(2)];
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {description} React concepts you will need for almost any app you are
-         going to build!
-        </p>
-    </header>
-  );
-}
+//   return (
+//     <div>
+//       <h2>Name: {user.last}, {user.first}</h2>
+//       <h3>Age: {user.age}</h3>
+//     </div>
+//   )
+// }
+
+
+
 
 
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Header />
       <main>
-        <h2>Time to get started!</h2>
+
+        <section id="core-concepts">
+          <h2>Time to get started!</h2>
+          <ul>
+            {/* spread the object into its attributes */}
+            <CoreConcept
+              {...CORE_CONCEPTS[0]} /> 
+            <CoreConcept
+              {...CORE_CONCEPTS[1]} />
+            <CoreConcept
+              {...CORE_CONCEPTS[2]} />
+            <CoreConcept
+              {...CORE_CONCEPTS[3]} />
+          </ul>
+        </section>
+
       </main>
+
     </div>
   );
 }
