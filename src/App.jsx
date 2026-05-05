@@ -2,9 +2,11 @@
 import componentsImg from './assets/components.png';
 import { CORE_CONCEPTS, EXAMPLES } from './data';
 import Header from './Components/Header/header';
-import CoreConcept from './Components/CoreConcepts/CoreConcepts';
+import CoreConcept from './Components/CoreConcepts/CoreConcept';
 import TabButton from './TabButton/TabButton';
-import {useState} from 'react'; 
+import {Fragment, useState} from 'react'; 
+import CoreConcepts from './Components/CoreConcepts/CoreConcepts';
+import TabButtons from './TabButton/TabButtons';
 // function UserData(){
 //   const user = {first:"George", last: "Salayka", age:"40"};
 
@@ -41,37 +43,15 @@ function App() {
   }
   
   return (
-    <div>
+    <>
       <Header />
       <main>
 
-        <section id="core-concepts">
-          <h2>Time to get started!</h2>
-          <ul>
-            
-           {
-
-            CORE_CONCEPTS.map((conceptItem) => <CoreConcept {...conceptItem}></CoreConcept>)
-           } 
-
-        
-            </ul>
-        </section>
-      <section id = "examples">
-        <h2> Examples</h2>
-        <menu>
-          <TabButton isSelected = {selectedTopic ==="components"} onSelect={()=>handleSelect("components")}>Components</TabButton>
-           <TabButton isSelected = {selectedTopic ==="jsx"} onSelect={()=>handleSelect("jsx")}>JSX</TabButton>
-            <TabButton isSelected = {selectedTopic ==="props"} onSelect={()=>handleSelect("props")}>Props</TabButton>
-             <TabButton isSelected = {selectedTopic ==="state"} onSelect={()=>handleSelect("state")}>State</TabButton>
-        </menu>
-        {tabContent}
-       
-        
-      </section>
+        <CoreConcepts/>
+        <TabButtons selectedTopic = {selectedTopic} tabContent = {tabContent} handleSelect ={handleSelect}/> 
       </main>
     
-    </div>
+    </>
   );
 }
 
