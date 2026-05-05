@@ -2,7 +2,7 @@ import TabButton from "./TabButton";
 import Section from "../Components/Section/Section";
 export default function TabButtons({ selectedTopic, tabContent, handleSelect }) {
     return (
-        <Section title = "Examples">
+        <Section id = "examples" title = "Examples">
             <menu>
                 <TabButton isSelected={selectedTopic === "components"} onSelect={() => handleSelect("components")}>Components</TabButton>
                 <TabButton isSelected={selectedTopic === "jsx"} onSelect={() => handleSelect("jsx")}>JSX</TabButton>
